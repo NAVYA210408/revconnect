@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RevConnect - Premium Social Network</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Authentication View -->
+    <div id="auth-view">
+        <div class="glass-panel auth-container">
+            <div class="auth-logo">RevConnect</div>
+            <form id="login-form" class="auth-form">
+                <input type="text" id="username" class="input-field" placeholder="Username or Email" required autocomplete="username">
+                <input type="password" id="password" class="input-field" placeholder="Password" required autocomplete="current-password">
+                <button type="submit" class="btn btn-primary">Sign In</button>
+                <p>Don't have an account? <a href="#" id="signup-link">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Application View (Hidden initially) -->
+    <div id="app-view" class="hidden">
+        
+        <!-- Mobile Header -->
+        <div class="mobile-header">
+            <div class="logo">Rev<span>Connect</span></div>
+            <img src="https://i.pravatar.cc/150?img=11" alt="Profile" class="avatar" id="mobile-profile-img">
+        </div>
+
+        <!-- Left Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">Rev<span>Connect</span></div>
+            
+            <ul class="nav-links">
+                <li class="nav-item active" data-view="home">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </li>
+                <li class="nav-item" data-view="explore">
+                    <i class="fa-solid fa-hashtag"></i>
+                    <span>Explore</span>
+                </li>
+                <li class="nav-item" data-view="notifications">
+                    <i class="fa-regular fa-bell"></i>
+                    <span>Notifications</span>
+                </li>
+                <li class="nav-item" data-view="messages">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>Messages</span>
+                </li>
+                <li class="nav-item" data-view="bookmarks">
+                    <i class="fa-regular fa-bookmark"></i>
+                    <span>Bookmarks</span>
+                </li>
+                <li class="nav-item" data-view="profile">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Profile</span>
+                </li>
+            </ul>
+
+            <div class="sidebar-profile" id="user-profile-btn">
+                <img src="https://i.pravatar.cc/150?img=11" alt="Current User" class="avatar">
+                <div class="user-info">
+                    <span class="user-name">Alex Rivera</span>
+                    <span class="user-handle">@arivera</span>
+                </div>
+                <i class="fa-solid fa-ellipsis" style="margin-left: auto; color: var(--text-secondary);"></i>
+            </div>
+        </aside>
+
+        <!-- Main Feed Content Area -->
+        <main class="main-feed">
+            <div class="page-header">
+                <h2>Home</h2>
+            </div>
+
+            <!-- Create Post Component -->
+            <div class="glass-panel create-post">
+                <div class="create-post-top">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Current User" class="avatar">
+                    <textarea class="create-post-input" id="post-input" placeholder="What's happening?"></textarea>
+                </div>
+                <div class="create-post-bottom">
+                    <div class="post-actions">
+                        <button class="post-action-btn"><i class="fa-regular fa-image"></i></button>
+                        <button class="post-action-btn"><i class="fa-solid fa-square-poll-horizontal"></i></button>
+                        <button class="post-action-btn"><i class="fa-regular fa-face-smile"></i></button>
+                        <button class="post-action-btn"><i class="fa-regular fa-calendar"></i></button>
+                        <button class="post-action-btn"><i class="fa-solid fa-location-dot"></i></button>
+                    </div>
+                    <button class="btn btn-primary" id="btn-post" disabled>Post</button>
+                </div>
+            </div>
+
+            <!-- Feed Container for Posts -->
+            <div class="feed" id="feed-container">
+                <!-- Posts will be injected here via JS -->
+            </div>
+        </main>
+
+        <!-- Right Sidebar Details -->
+        <aside class="right-panel">
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search RevConnect">
+            </div>
+
+            <div class="glass-panel trending-box">
+                <h3 class="box-title">What's happening</h3>
+                
+                <div class="trend-item">
+                    <div class="trend-category">Technology · Trending</div>
+                    <div class="trend-name">#WebDevelopment</div>
+                    <div class="trend-tweets">125K Posts</div>
+                </div>
+                
+                <div class="trend-item">
+                    <div class="trend-category">Design · Trending</div>
+                    <div class="trend-name">Glassmorphism UI</div>
+                    <div class="trend-tweets">43.2K Posts</div>
+                </div>
+                
+                <div class="trend-item">
+                    <div class="trend-category">Programming · Trending</div>
+                    <div class="trend-name">JavaScript</div>
+                    <div class="trend-tweets">89.5K Posts</div>
+                </div>
+            </div>
+
+            <div class="glass-panel suggestions-box">
+                <h3 class="box-title">Who to follow</h3>
+                
+                <div class="suggestion-item">
+                    <div class="suggestion-info">
+                        <img src="https://i.pravatar.cc/150?img=33" alt="User" class="avatar">
+                        <div class="user-info">
+                            <span class="user-name">Sarah Chen</span>
+                            <span class="user-handle">@schen_dev</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary btn-follow">Follow</button>
+                </div>
+                
+                <div class="suggestion-item">
+                    <div class="suggestion-info">
+                        <img src="https://i.pravatar.cc/150?img=68" alt="User" class="avatar">
+                        <div class="user-info">
+                            <span class="user-name">Marcus Johnson</span>
+                            <span class="user-handle">@marcus_j</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary btn-follow">Follow</button>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
